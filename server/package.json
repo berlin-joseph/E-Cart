@@ -7,5 +7,10 @@
   },
   "scripts": {
     "start": "nodemon server.js"
-  }
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "berlin joseph",
+  "license": "MIT"
 }
