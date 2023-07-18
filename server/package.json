@@ -6,7 +6,9 @@
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "dev": "set NODE_ENV=development && nodemon server.js",
+    "prod": "set NODE_ENV=production && nodemon server.js"
   },
   "name": "server",
   "version": "1.0.0",
