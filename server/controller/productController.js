@@ -28,8 +28,29 @@ exports.getSingleProduct = async (req, res, next) => {
       message: "product not found",
     });
   }
-  res.status(201).json({
+  res.status(200).json({
     success: true,
     product,
   });
+};
+
+// Update Product - api/v1/products/:id
+exports.updateProducts = async (req, res, next) => {
+  let product = await productModel.findById(req.params.id);
+  if (!product) {
+    return res.status(404).json({
+      success: false,
+      message: "Product not found",
+    });
+  } else {
+    product = await productModel.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    res.status(200).json({
+      success: true,
+      product,
+    });
+  }
 };
