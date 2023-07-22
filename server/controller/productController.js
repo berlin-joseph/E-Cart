@@ -1,3 +1,4 @@
+const asyncError = require("../middleware/asyncError");
 const productModel = require("../models/productModel");
 const ErrorHandler = require("../utils/errorHandler");
 
@@ -12,13 +13,13 @@ exports.getProducts = async (req, res, next) => {
 };
 
 // Create Products - api/v1/products
-exports.createProducts = async (req, res, next) => {
+exports.createProducts = asyncError(async (req, res, next) => {
   const product = await productModel.create(req.body);
   res.status(201).json({
     success: true,
     product,
   });
-};
+});
 
 //Get Single Product - api/v1/products/:id
 exports.getSingleProduct = async (req, res, next) => {

@@ -8,9 +8,6 @@ const connectDatabase = () => {
     })
     .then((con) => {
       console.log(`Mongodb is connected host:${process.env.MONGO_URI}`);
-    })
-    .catch((err) => {
-      console.log("err");
     });
 };
 
